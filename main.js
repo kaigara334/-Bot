@@ -1,9 +1,10 @@
 const { Client, Intents } = require('discord.js');
 const axios = require('axios');
+require('dotenv').config();  // .envファイルを読み込む
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-const token = 'YOUR_BOT_TOKEN_HERE';  // Discord Botのトークン
-const channelId = 'YOUR_CHANNEL_ID';  // 通知を送信するチャンネルID
+const token = process.env.DISCORD_BOT_TOKEN;  // .envからBotトークンを取得
+const channelId = process.env.CHANNEL_ID;    // .envからチャンネルIDを取得
 
 // ntool APIのURL
 const trainInfoUrl = 'https://ntool.online/data/train_all.json';
